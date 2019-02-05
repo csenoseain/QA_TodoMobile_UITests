@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B19C892E-2628-4CA7-AD27-08D406A3B14B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Todo.Mobile.UITests</RootNamespace>
+    <AssemblyName>Todo.Mobile.UITests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="2.6.4" />
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.5.231</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.UITest" Version="2.2.7" />
+    <PackageReference Include="NUnitTestAdapter" Version="2.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppInitializer.cs" />
+    <Compile Include="TestData\InputData.cs" />
+    <Compile Include="Tests\BasicTest.cs" />
+    <Compile Include="Views\Common\UITest.cs" />
+    <Compile Include="Views\TodoList\TodoListView.cs" />
+    <Compile Include="Views\Common\AppUser.cs" />
+    <Compile Include="Views\Common\BasicView.cs" />
+    <Compile Include="Views\TodoList\TodoListViewLocator.cs" />
+    <Compile Include="Views\Common\BasicViewChecker.cs" />
+    <Compile Include="Views\TodoList\TodoListViewChecker.cs" />
+    <Compile Include="Views\TodoItem\TodoItemView.cs" />
+    <Compile Include="Views\TodoItem\TodoItemViewLocator.cs" />
+    <Compile Include="Views\TodoItem\TodoItemViewChecker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Todo.iOS\Todo.iOS.csproj">
+      <Project>{1902913C-BB6F-4CCB-9B90-1D0CAEECAF12}</Project>
+      <Name>Todo.iOS</Name>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
